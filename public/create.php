@@ -8,8 +8,8 @@
 	<input type="text" name="author" id="author">
     <label for="genre">Genre</label>
 	<input type="text" name="genre" id="genre">
-    <label for="language">Langauge</label>
-	<input type="text" name="langauge" id="language">
+    <label for="lang">Langauge</label>
+	<input type="text" name="lang" id="lang">
     <label for="published">Published</label>
 	<input type="text" name="published" id="published">
     <input type="submit" name="submit" value="Add Book">
