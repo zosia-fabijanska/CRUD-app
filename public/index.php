@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<h1>Book List</h1>
+	<h1>Book Wishlist</h1>
 
 	<ul>
 		<li><a href="create.php"><strong>Create</strong></a> - add a book</li>
