@@ -19,13 +19,21 @@ if (isset($_POST['submit'])) {
 
         $search = $conn->real_escape_string($_POST['title']);
 
-        $results = $conn->query["SELECT * FROM books WHERE title = '$search'"];
+        $results = $conn->query("SELECT * FROM books WHERE title LIKE '%$search%'");
 
+        //If there are rows of results greater than 0
         if ($results->num_rows > 0) {
 
-        } 
-        else {
-            echo "No Results found, try searching for another title.";
+            //Turn Results into an Array
+            while ($rows = $results->fetch_assoc()) 
+            {
+                $title = $rows['title'];
+                $author = $rows['author'];
+
+                $output .= "Title: $title <br/> Author: $author <br/><br/>";
+            }
+        } else {
+            $output =  "No Results found, try searching for another title.";
         }
     }
 
@@ -41,14 +49,15 @@ if (isset($_POST['submit'])) {
 
 <h1>Find your favourite book by title:</h1>
 
-<form method="post">
+<form method="POST">
 	<label for="title">Title</label>
 	<input type="text" id="title" name="title">
 	<input type="submit" name="submit" value="View Results">
 </form>
 
-<a href="index.php">Back to home</a>
-
 <?php echo $output ?>
+
+<a href="index.php">Back to home</a><br/>
+
 
 <?php include "templates/footer.php>"; ?>
