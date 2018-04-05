@@ -6,10 +6,10 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Book Wish List</title>
+	<title>Book Shop</title>
 
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-	<h1>Book Wishlist</h1>
+	<h1>Book Shop</h1>
