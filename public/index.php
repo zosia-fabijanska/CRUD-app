@@ -32,7 +32,9 @@
                             echo '<tr>';
                             echo '<td>'. $row['title'] . '</td>';
                             echo '<td>'. $row['author'] . '</td>';
-                            echo '<td><a class="btn" href="read.php?id='.$row['id'].'">More...</a></td>';
+                            echo '<td><a class="btn" href="read.php?id='.$row['id'].'">Find out more...</a></td>';
+                            echo '<td><a class="btn" href="update.php?id='.$row['id'].'">Update...</a></td>';
+                            echo '<td><a class="btn" href="delete.php?id='.$row['id'].'">Delete...</a></td>';
                             echo '</tr>';
                    }
                    
