@@ -25,7 +25,13 @@ if (isset($_POST['submit'])) {
             $lang = $_POST['lang'];
             $published = $_POST['published'];
 
-            $sql = "UPDATE books SET title = '$title', author = '$author', genre = '$genre', lang = '$lang', published = '$published' WHERE id = '$id'";
+            //Fetch the value for groups unique identifier
+            $identifier = $conn->query("SELECT groups FROM books WHERE id = '$id'");
+            $array = mysqli_fetch_assoc($identifier);
+            $key = $array['groups'];
+
+            $sql = "INSERT INTO books (title, author, genre, lang, published, archive, groups)
+            VALUES ('$title', '$author', '$genre', '$lang', '$published', 1, '$key')";
 
             $result = $conn->query($sql);
             

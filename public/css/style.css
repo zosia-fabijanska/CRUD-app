@@ -13,3 +13,6 @@ th {
 	padding: 5px;
 	border-bottom: 1px solid #aaa;
 }
+button {
+	background-color: red;
+}

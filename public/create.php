@@ -1,5 +1,10 @@
 <?php 
     require "config.php";
+
+    $id = null;
+    if ( !empty($_GET['id'])) {
+        $id = $_REQUEST['id'];
+    }
 // When the submit button is clicked
 if (isset($_POST['submit'])) {
 
@@ -34,10 +39,11 @@ if (isset($_POST['submit'])) {
            $genre = $_POST['genre'];
            $lang = $_POST['lang'];
            $published = $_POST['published'];
+           
        
            //Insert input values into database columns
-           $sql = "INSERT INTO books (title, author, genre, lang, published)
-           VALUES ('$title', '$author', '$genre', '$lang', '$published')";
+           $sql = "INSERT INTO books (title, author, genre, lang, published, archive, groups)
+           VALUES ('$title', '$author', '$genre', '$lang', '$published', 1, (conv(floor(rand() * 9999999), 20, 36)))";
        
            //Print result of query at the top of screen
            if ($conn->query($sql) === TRUE) {

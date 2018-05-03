@@ -27,7 +27,8 @@
                     }
                     
                     
-                   $sql = 'SELECT * FROM books ORDER BY title DESC';
+                   $sql = "SELECT * FROM books  WHERE archive = 1 ORDER BY title ASC";
+                   
                    foreach ($conn->query($sql) as $row) {
                             echo '<tr>';
                             echo '<td>'. $row['title'] . '</td>';
