@@ -94,5 +94,5 @@ include "templates/header.php";
     <input type="submit" name="submit" value="Add Book">
 </form>
 
-<a href="index.php">Return to Wishlist</a>
+<a href="index.php">Return to book list</a>
 <?php include "templates/footer.php>"; ?>

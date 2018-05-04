@@ -67,6 +67,6 @@ if (isset($_POST['submit'])) {
     <input type="submit" name="submit" value="Update Book">
 </form>
 
-<a href="index.php">Return to Wishlist</a>
+<a href="index.php">Return to book list</a>
 
 <?php include "templates/footer.php>"; ?>

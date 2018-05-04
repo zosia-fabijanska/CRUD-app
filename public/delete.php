@@ -48,6 +48,6 @@
 </form>
 
 <br/>
-<a href="index.php">Return to Wishlist</a>
+<a href="index.php">Return to book list</a>
 
 <?php include "templates/footer.php>"; ?>
