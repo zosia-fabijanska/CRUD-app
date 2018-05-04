@@ -27,7 +27,13 @@
                     }
                     
                     
-                   $sql = "SELECT * FROM books  WHERE archive = 1 ORDER BY title ASC";
+                   $sql = "SELECT * 
+                            FROM ( SELECT * 
+                                    FROM books 
+                                    ORDER BY date_created DESC ) 
+                            AS recentbooks 
+                            WHERE archive=1 
+                            GROUP BY groups";
                    
                    foreach ($conn->query($sql) as $row) {
                             echo '<tr>';
