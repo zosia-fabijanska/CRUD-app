@@ -14,7 +14,9 @@
     } else {
         $conn = new mysqli($host, $username, $password, $dbname);
 
-        $sql = "SELECT * FROM books where id = '$id'";
+        $sql = $conn->query("SELECT * FROM books where id = '$id'");
+        $result = mysqli_fetch_assoc($sql);
+        
     }
 
 ?>
@@ -30,47 +32,27 @@
           
          <div>
              <label class="control-label">Title: 
-                     <?php   
-                        foreach ($conn->query($sql) as $row) {
-                            echo $row['title'];
-                        }
-                    ?>
+                     <?php echo $result['title']; ?>
             </label>
          </div>
          <div>
-             <label class="control-label">Author: 
-                     <?php   
-                        foreach ($conn->query($sql) as $row) {
-                            echo $row['author'];
-                        }
-                    ?>
+         <label class="control-label">Author: 
+                     <?php echo $result['author']; ?>
             </label>
          </div>
          <div>
-             <label class="control-label">Genre: 
-                     <?php   
-                        foreach ($conn->query($sql) as $row) {
-                            echo $row['genre'];
-                        }
-                    ?>
+         <label class="control-label">Genre: 
+                     <?php echo $result['genre']; ?>
             </label>
          </div>
          <div>
-             <label class="control-label">Langauge: 
-                     <?php   
-                        foreach ($conn->query($sql) as $row) {
-                            echo $row['lang'];
-                        }
-                    ?>
+         <label class="control-label">Language: 
+                     <?php echo $result['lang']; ?>
             </label>
          </div>
          <div>
-             <label class="control-label">Published in: 
-                     <?php   
-                        foreach ($conn->query($sql) as $row) {
-                            echo $row['published'];
-                        }
-                    ?>
+         <label class="control-label">Date Published: 
+                     <?php echo $result['published']; ?>
             </label>
          </div>
              <div class="form-actions">

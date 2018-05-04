@@ -25,8 +25,6 @@
                 $result = $conn->query($sql);
 
                 echo($row['title'].' has been deleted');
-
-             
             }
         
         catch(PDOException $error) 
