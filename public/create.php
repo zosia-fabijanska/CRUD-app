@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     require "config.php";
 
     $id = null;
@@ -47,12 +48,9 @@
        
                 //Print result of query at the top of screen
                 if ($conn->query($sql) === TRUE) {
-                    ?>
-                        <h3>
-                            <?php echo $_POST['title']; ?>
-                            successfully added.
-                        </h3>
-                <?php
+                    $_SESSION['message'] = $_POST['title'] . " successfully added!";
+                    header("Location: index.php");
+                      
                 } else {
                     ?>
                         <h3>
@@ -77,22 +75,24 @@ include "templates/header.php";
 ?>
 
 
+<div class="container">
 
+    <form method="POST">
+        <label for="title">Book Title</label>
+        <input type="text" name="title" id="title">
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author">
+        <label for="genre">Genre</label>
+        <input type="text" name="genre" id="genre">
+        <label for="lang">Langauge</label>
+        <input type="text" name="lang" id="lang">
+        <label for="published">Published</label>
+        <input type="text" name="published" id="published">
+        <input type="submit" name="submit" value="Add Book">
+    </form>
+    
+    <a href="index.php">Return to book list</a>
+</div>
 <h1>Add a book</h1>
 
-<form method="POST">
-    <label for="title">Book Title</label>
-	<input type="text" name="title" id="title">
-    <label for="author">Author</label>
-	<input type="text" name="author" id="author">
-    <label for="genre">Genre</label>
-	<input type="text" name="genre" id="genre">
-    <label for="lang">Langauge</label>
-	<input type="text" name="lang" id="lang">
-    <label for="published">Published</label>
-	<input type="text" name="published" id="published">
-    <input type="submit" name="submit" value="Add Book">
-</form>
-
-<a href="index.php">Return to book list</a>
 <?php include "templates/footer.php>"; ?>

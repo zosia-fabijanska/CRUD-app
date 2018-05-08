@@ -23,9 +23,9 @@
 
 <?php include "templates/header.php"; ?>
 
-<h1>Find your favourite book by title:</h1>
 
  <div class="container">
+        <h1>Find your favourite book by title:</h1>
          <div class="row">
              <h3>Book Information</h3>
          </div>
