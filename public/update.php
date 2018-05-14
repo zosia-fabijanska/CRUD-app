@@ -11,7 +11,7 @@ require 'config.php';
     } else {
         $conn = new mysqli($host, $username, $password, $dbname);
 
-        $sql = "SELECT * FROM books WHERE id = '$id'";
+        $sql = "SELECT * FROM books WHERE books_id = '$id'";
 
         $result = $conn->query($sql);
         $row = mysqli_fetch_assoc($result);
@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
             $published = $_POST['published'];
 
             //Fetch the value for groups unique identifier
-            $identifier = $conn->query("SELECT groups FROM books WHERE id = '$id'");
+            $identifier = $conn->query("SELECT groups FROM books WHERE books_id = '$id'");
             $array = mysqli_fetch_assoc($identifier);
             $key = $array['groups'];
 
@@ -70,6 +70,7 @@ include "templates/header.php";
         <input type="text" name="published" id="published" 
             value="<?php echo $row['published'] ?>">
         <input type="submit" name="submit" value="Update Book">
+        <!-- Update Store and Quantity numbers -->
     </form>
     <a href="index.php">Return to book list</a>
 </div>

@@ -76,7 +76,7 @@ include "templates/header.php";
 
 
 <div class="container">
-
+    <h3>Add Book</h3>
     <form method="POST">
         <label for="title">Book Title</label>
         <input type="text" name="title" id="title">
@@ -89,10 +89,12 @@ include "templates/header.php";
         <label for="published">Published</label>
         <input type="text" name="published" id="published">
         <input type="submit" name="submit" value="Add Book">
+        <!-- Store Location and Quantity
+                if Store location is not selected then Quantity defaults as 0-->
     </form>
     
     <a href="index.php">Return to book list</a>
 </div>
-<h1>Add a book</h1>
+
 
 <?php include "templates/footer.php>"; ?>

@@ -2,8 +2,6 @@
     session_start();
     include "templates/header.php"; 
     include 'config.php';
-
-    include 'config.php';
                    
     $conn = new mysqli($host, $username, $password, $dbname);
 
@@ -22,7 +20,7 @@
     
     $result = $conn->query($sql);
     $row = mysqli_fetch_assoc($result);
-    $id = $row['id'];
+    $id = $row['books_id'];
 
 ?>
 
@@ -58,9 +56,9 @@
             <br />
             <?php 
               foreach ($conn->query($sql) as $row) {
-                echo '<a class="btn" style="margin-top: 2px;" href="read.php?id='.$row['id'].'">Find out more...</a>';
-                echo '<a class="btn" style="margin-top: 2px;" href="update.php?id='.$row['id'].'">Update...</a>';
-                echo '<button id="del_'.$row['id'].'" class="btn btn-danger btn-sm remove delete">Delete</button></br>';
+                echo '<a class="btn" style="margin-top: 2px;" href="read.php?id='.$row['books_id'].'">Find out more...</a>';
+                echo '<a class="btn" style="margin-top: 2px;" href="update.php?id='.$row['books_id'].'">Update...</a>';
+                echo '<button id="del_'.$row['books_id'].'" class="btn btn-danger btn-sm remove delete">Delete</button></br>';
               }
             ?>
         
@@ -93,7 +91,6 @@
                         type: 'POST',
                         data: { id:deleteid },
                         success: function(){
-                            console.log('it worked ' + deleteid);
                             window.location = 'index.php'
                             
                         }

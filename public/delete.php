@@ -5,7 +5,7 @@
 
      $id = $_POST['id'];
      //Fetch the value for groups unique identifier
-     $identifier = $conn->query("SELECT groups FROM books WHERE id = '$id'");
+     $identifier = $conn->query("SELECT groups FROM books WHERE books_id = '$id'");
      $array = mysqli_fetch_assoc($identifier);
      $key = $array['groups'];
 

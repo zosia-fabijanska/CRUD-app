@@ -12,4 +12,21 @@ CREATE TABLE books (
     date TIMESTAMP
 );
 
+CREATE TABLE shops (
+    id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    shop_location VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    phone INT(12) NOT NULL,
+    shop_owner VARCHAR(30) NOT NULL,
+    date_created TIMESTAMP
+);
+
+CREATE TABLE book_shops (
+    id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    books_id INT(10) NOT NULL,
+    shops_id INT (10) NOT NULL,
+    quantity INT(10) NOT NULL,
+    date_created TIMESTAMP
+);
+
 

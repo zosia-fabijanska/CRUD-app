@@ -14,7 +14,7 @@
     } else {
         $conn = new mysqli($host, $username, $password, $dbname);
 
-        $sql = $conn->query("SELECT * FROM books where id = '$id'");
+        $sql = $conn->query("SELECT * FROM books where books_id = '$id'");
         $result = mysqli_fetch_assoc($sql);
         
     }
@@ -25,41 +25,45 @@
 
 
  <div class="container">
-        <h1>Find your favourite book by title:</h1>
          <div class="row">
-             <h3>Book Information</h3>
-         </div>
-          
-         <div>
-             <label class="control-label">Title: 
-                     <?php echo $result['title']; ?>
-            </label>
-         </div>
-         <div>
-         <label class="control-label">Author: 
-                     <?php echo $result['author']; ?>
-            </label>
-         </div>
-         <div>
-         <label class="control-label">Genre: 
-                     <?php echo $result['genre']; ?>
-            </label>
-         </div>
-         <div>
-         <label class="control-label">Language: 
-                     <?php echo $result['lang']; ?>
-            </label>
-         </div>
-         <div>
-         <label class="control-label">Date Published: 
-                     <?php echo $result['published']; ?>
-            </label>
-         </div>
-             <div class="form-actions">
-               <a class="btn" href="index.php">Return to book list</a>
-            </div>
-     </div>
-      
+             <div class="col-4">
+                    <h3>Book Information</h3>
+              <div>
+                  <label class="control-label">Title: 
+                          <?php echo $result['title']; ?>
+                 </label>
+              </div>
+              <div>
+              <label class="control-label">Author: 
+                          <?php echo $result['author']; ?>
+                 </label>
+              </div>
+              <div>
+              <label class="control-label">Genre: 
+                          <?php echo $result['genre']; ?>
+                 </label>
+              </div>
+              <div>
+              <label class="control-label">Language: 
+                          <?php echo $result['lang']; ?>
+                 </label>
+              </div>
+              <div>
+              <label class="control-label">Date Published: 
+                          <?php echo $result['published']; ?>
+                 </label>
+              </div>
+          </div>
+          <div class="col-3">
+              <h3>Stock Information</h3>
+              <div>
+                  <!-- Table with Store Location Email Phone Quantity -->
+              </div>
+          </div>
+        </div>
+         <div class="form-actions">
+            <a class="btn" href="index.php">Return to book list</a>
+        </div> 
 </div>
 
 
