@@ -14,9 +14,13 @@
     } else {
         $conn = new mysqli($host, $username, $password, $dbname);
 
-        $sql = $conn->query("SELECT * FROM books where books_id = '$id'");
-        $result = mysqli_fetch_assoc($sql);
-        
+        $sql = $conn->query("SELECT books.*, shops.*, book_shops.quantity 
+                                FROM books, shops, book_shops 
+                                WHERE books.books_id = book_shops.books_id 
+                                AND shops.shops_id = book_shops.shops_id 
+                                AND books.books_id = '$id'");
+        $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
+       
     }
 
 ?>
@@ -30,35 +34,59 @@
                     <h3>Book Information</h3>
               <div>
                   <label class="control-label">Title: 
-                          <?php echo $result['title']; ?>
+                          <?php echo $result[0]['title']; ?>
                  </label>
               </div>
               <div>
               <label class="control-label">Author: 
-                          <?php echo $result['author']; ?>
+                          <?php echo $result[0]['author']; ?>
                  </label>
               </div>
               <div>
               <label class="control-label">Genre: 
-                          <?php echo $result['genre']; ?>
+                          <?php echo $result[0]['genre']; ?>
                  </label>
               </div>
               <div>
               <label class="control-label">Language: 
-                          <?php echo $result['lang']; ?>
+                          <?php echo $result[0]['lang']; ?>
                  </label>
               </div>
               <div>
               <label class="control-label">Date Published: 
-                          <?php echo $result['published']; ?>
+                          <?php echo $result[0]['published']; ?>
                  </label>
               </div>
           </div>
-          <div class="col-3">
+          <div class="col-6">
               <h3>Stock Information</h3>
-              <div>
-                  <!-- Table with Store Location Email Phone Quantity -->
-              </div>
+                <div>
+                    <?php 
+                    echo '<p>Shop: '.$result[0]['shop_location'].'</p>';
+                    echo '<p>Quantity: '.$result[0]['quantity'].'</p>';
+                    echo '<p>Email: '.$result[0]['email'].'</p>';
+                    echo '<p>Phone: '.$result[0]['phone'].'</p>';
+                    echo '<p>Manager: '.$result[0]['shop_owner'].'</p><br/>';
+                    ?>
+                </div>
+                <div>
+                    <?php 
+                    echo '<p>Shop: '.$result[1]['shop_location'].'</p>';
+                    echo '<p>Quantity: '.$result[1]['quantity'].'</p>';
+                    echo '<p>Email: '.$result[1]['email'].'</p>';
+                    echo '<p>Phone: '.$result[1]['phone'].'</p>';
+                    echo '<p>Manager: '.$result[1]['shop_owner'].'</p><br/>';
+                    ?>
+                </div>
+                <div>
+                    <?php 
+                    echo '<p>Shop: '.$result[2]['shop_location'].'</p>';
+                    echo '<p>Quantity: '.$result[2]['quantity'].'</p>';
+                    echo '<p>Email: '.$result[2]['email'].'</p>';
+                    echo '<p>Phone: '.$result[2]['phone'].'</p>';
+                    echo '<p>Manager: '.$result[2]['shop_owner'].'</p><br/>';
+                    ?>
+                </div>
           </div>
         </div>
          <div class="form-actions">
