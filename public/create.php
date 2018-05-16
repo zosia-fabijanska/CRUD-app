@@ -12,7 +12,7 @@
         //try the following
         try {
             //fields are all required
-            $required = array('title', 'author', 'genre', 'lang', 'published');
+            $required = array('title', 'author', 'genre', 'lang', 'published', 'bruns', 'melb', 'hawth');
 
             //loop over each field in the array to check if empty
             $error = false;
@@ -40,14 +40,20 @@
                 $genre = $_POST['genre'];
                 $lang = $_POST['lang'];
                 $published = $_POST['published'];
-           
-       
-                //Insert input values into database columns
-                $sql = "INSERT INTO books (title, author, genre, lang, published, archive, groups)
-                VALUES ('$title', '$author', '$genre', '$lang', '$published', 1, (conv(floor(rand() * 9999999), 20, 36)))";
+                $brunswick = $_POST['bruns'];
+                $melbourne = $_POST['melb'];
+                $hawthorn = $_POST['hawth'];
+
+
+                $sql = "START TRANSACTION;"; 
+                $sql .= "INSERT INTO books (title, author, genre, lang, published, archive, groups) VALUES ('$title', '$author', '$genre', '$lang', '$published', 1, (conv(floor(rand() * 9999999), 20, 36)));";
+                $sql .= "INSERT INTO book_shops (books_id, shops_id, quantity) VALUES (LAST_INSERT_ID(), '1', '$brunswick'), (LAST_INSERT_ID(), '2', '$melbourne'), (LAST_INSERT_ID(), '3', '$hawthorn');";
+                $sql .="COMMIT;";
+
+                
        
                 //Print result of query at the top of screen
-                if ($conn->query($sql) === TRUE) {
+                if (mysqli_multi_query($conn,$sql)) {
                     $_SESSION['message'] = $_POST['title'] . " successfully added!";
                     header("Location: index.php");
                       
@@ -88,6 +94,12 @@ include "templates/header.php";
         <input type="text" name="lang" id="lang">
         <label for="published">Published</label>
         <input type="text" name="published" id="published">
+        <label for="bruns">Brunswick Store Quantity</label>
+        <input type="text" name="bruns" id="bruns">
+        <label for="melb">Melbourne CBD Store Quantity</label>
+        <input type="text" name="melb" id="melb">
+        <label for="hawth">Hawthorn Store Quantity</label>
+        <input type="text" name="hawth" id="hawth">
         <input type="submit" name="submit" value="Add Book">
         <!-- Store Location and Quantity
                 if Store location is not selected then Quantity defaults as 0-->
