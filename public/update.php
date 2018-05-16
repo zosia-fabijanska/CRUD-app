@@ -21,7 +21,22 @@ require 'config.php';
     }
 
 if (isset($_POST['submit'])) {
-    try { 
+
+    $required = array('title', 'author', 'genre', 'lang', 'published', 'bruns', 'melb', 'hawth');
+
+    //loop over each field in the array to check if empty
+    $error = false;
+    foreach($required as $field) {
+        if ((isset($field) && $field === "0") || !empty($field)) {
+            $error = false;
+        }
+    }
+       
+    if ($error) {
+        echo "You need to fill out all the required fields to enter a book";
+    }
+
+        try { 
 
             $title = $_POST['title'];
             $author = $_POST['author'];
@@ -85,13 +100,13 @@ include "templates/header.php";
         <input type="text" name="published" id="published" 
             value="<?php echo $result[0]['published'] ?>">
         <label for="bruns">Brunswick Store Quantity</label>
-        <input type="text" name="bruns" id="bruns" 
+        <input type="number" name="bruns" id="bruns" 
             value="<?php echo $result[0]['quantity'] ?>">
         <label for="melb">Melbourne Store Quantity</label>
-        <input type="text" name="melb" id="melb" 
+        <input type="number" name="melb" id="melb" 
             value="<?php echo $result[1]['quantity'] ?>">
         <label for="hawth">Hawthorn Store Quantity</label>
-        <input type="text" name="hawth" id="hawth" 
+        <input type="number" name="hawth" id="hawth" 
             value="<?php echo $result[2]['quantity'] ?>">
             <br/>
         <input type="submit" class="submit" name="submit" value="Update Book">

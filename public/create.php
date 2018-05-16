@@ -17,8 +17,8 @@
             //loop over each field in the array to check if empty
             $error = false;
             foreach($required as $field) {
-                if (empty($_POST[$field])) {
-                    $error = true;
+                if ((isset($field) && $field === "0") || !empty($field)) {
+                    $error = false;
                 }
             }
        
@@ -95,11 +95,11 @@ include "templates/header.php";
         <label for="published">Published</label>
         <input type="text" name="published" id="published">
         <label for="bruns">Brunswick Store Quantity</label>
-        <input type="text" name="bruns" id="bruns">
+        <input type="number" name="bruns" id="bruns">
         <label for="melb">Melbourne CBD Store Quantity</label>
-        <input type="text" name="melb" id="melb">
+        <input type="number" name="melb" id="melb">
         <label for="hawth">Hawthorn Store Quantity</label>
-        <input type="text" name="hawth" id="hawth">
+        <input type="number" name="hawth" id="hawth">
         <br/>
         <input type="submit" class="submit" name="submit" value="+ Add Book">
         <!-- Store Location and Quantity
