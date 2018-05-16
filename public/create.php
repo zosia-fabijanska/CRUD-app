@@ -100,7 +100,8 @@ include "templates/header.php";
         <input type="text" name="melb" id="melb">
         <label for="hawth">Hawthorn Store Quantity</label>
         <input type="text" name="hawth" id="hawth">
-        <input type="submit" name="submit" value="Add Book">
+        <br/>
+        <input type="submit" class="submit" name="submit" value="+ Add Book">
         <!-- Store Location and Quantity
                 if Store location is not selected then Quantity defaults as 0-->
     </form>

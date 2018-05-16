@@ -4,11 +4,24 @@ label {
 }
 
 button {
-	background-color: red;
+	background-color: green;
 }
 
 strong {
 	font-size: 18px;
-	color: green;
+	color: #fff;
 }
 
+.submit {
+	background-color: green;
+	border-radius: 5px;
+	color: #fff;
+	padding: 10px 32px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+span {
+	font-weight: bold;
+	color: green;
+}

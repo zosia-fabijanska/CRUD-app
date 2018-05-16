@@ -93,7 +93,8 @@ include "templates/header.php";
         <label for="hawth">Hawthorn Store Quantity</label>
         <input type="text" name="hawth" id="hawth" 
             value="<?php echo $result[2]['quantity'] ?>">
-        <input type="submit" name="submit" value="Update Book">
+            <br/>
+        <input type="submit" class="submit" name="submit" value="Update Book">
         <!-- Update Store and Quantity numbers -->
     </form>
     <a href="index.php">Return to book list</a>

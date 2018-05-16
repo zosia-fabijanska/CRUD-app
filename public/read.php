@@ -33,27 +33,27 @@
              <div class="col-4">
                     <h3>Book Information</h3>
               <div>
-                  <label class="control-label">Title: 
+                  <label class="control-label"><span>Title: </span>
                           <?php echo $result[0]['title']; ?>
                  </label>
               </div>
               <div>
-              <label class="control-label">Author: 
+              <label class="control-label"><span>Author: </span>
                           <?php echo $result[0]['author']; ?>
                  </label>
               </div>
               <div>
-              <label class="control-label">Genre: 
+              <label class="control-label"><span>Genre: </span>
                           <?php echo $result[0]['genre']; ?>
                  </label>
               </div>
               <div>
-              <label class="control-label">Language: 
+              <label class="control-label"><span>Language: </span>
                           <?php echo $result[0]['lang']; ?>
                  </label>
               </div>
               <div>
-              <label class="control-label">Date Published: 
+              <label class="control-label"><span>Date Published: </span>
                           <?php echo $result[0]['published']; ?>
                  </label>
               </div>
@@ -62,29 +62,29 @@
               <h3>Stock Information</h3>
                 <div>
                     <?php 
-                    echo '<p>Shop: '.$result[0]['shop_location'].'</p>';
-                    echo '<p>Quantity: '.$result[0]['quantity'].'</p>';
-                    echo '<p>Email: '.$result[0]['email'].'</p>';
-                    echo '<p>Phone: '.$result[0]['phone'].'</p>';
-                    echo '<p>Manager: '.$result[0]['shop_owner'].'</p><br/>';
+                    echo '<p><span>Shop: </span>'.$result[0]['shop_location'].'</p>';
+                    echo '<p><span>Quantity: </span>'.$result[0]['quantity'].'</p>';
+                    echo '<p><span>Email: </span>'.$result[0]['email'].'</p>';
+                    echo '<p><span>Phone: </span>'.$result[0]['phone'].'</p>';
+                    echo '<p><span>Manager: </span>'.$result[0]['shop_owner'].'</p><br/>';
                     ?>
                 </div>
                 <div>
                     <?php 
-                    echo '<p>Shop: '.$result[1]['shop_location'].'</p>';
-                    echo '<p>Quantity: '.$result[1]['quantity'].'</p>';
-                    echo '<p>Email: '.$result[1]['email'].'</p>';
-                    echo '<p>Phone: '.$result[1]['phone'].'</p>';
-                    echo '<p>Manager: '.$result[1]['shop_owner'].'</p><br/>';
+                    echo '<p><span>Shop: </span>'.$result[1]['shop_location'].'</p>';
+                    echo '<p><span>Quantity: </span>'.$result[1]['quantity'].'</p>';
+                    echo '<p><span>Email: </span>'.$result[1]['email'].'</p>';
+                    echo '<p><span>Phone: </span>'.$result[1]['phone'].'</p>';
+                    echo '<p><span>Manager: </span>'.$result[1]['shop_owner'].'</p><br/>';
                     ?>
                 </div>
                 <div>
                     <?php 
-                    echo '<p>Shop: '.$result[2]['shop_location'].'</p>';
-                    echo '<p>Quantity: '.$result[2]['quantity'].'</p>';
-                    echo '<p>Email: '.$result[2]['email'].'</p>';
-                    echo '<p>Phone: '.$result[2]['phone'].'</p>';
-                    echo '<p>Manager: '.$result[2]['shop_owner'].'</p><br/>';
+                    echo '<p><span>Shop: </span>'.$result[2]['shop_location'].'</p>';
+                    echo '<p><span>Quantity: </span>'.$result[2]['quantity'].'</p>';
+                    echo '<p><span>Email: </span>'.$result[2]['email'].'</p>';
+                    echo '<p><span>Phone: </span>'.$result[2]['phone'].'</p>';
+                    echo '<p><span>Manager: </span>'.$result[2]['shop_owner'].'</p><br/>';
                     ?>
                 </div>
           </div>

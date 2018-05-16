@@ -1,7 +1,7 @@
 <?php 
     session_start();
-    include "templates/header.php"; 
-    include 'config.php';
+    require "templates/header.php"; 
+    require 'config.php';
                    
     $conn = new mysqli($host, $username, $password, $dbname);
 
@@ -25,13 +25,11 @@
 ?>
 
 <div class="container">
-     <div class="row">
+     <div class="row" style="padding-top:20px;">
         <?php echo $_SESSION['message'] ?>
     </div>
-    <div class="row">
-	     <ul>
-		        <li><a href="create.php"><strong>Add to Booklist</strong></a> - add a book</li>
-	        </ul>
+    <div class="row" style="padding-top:20px;">
+		<button class="btn"><a href="create.php"><strong>Add to Booklist</strong></a></button>
      </div>
 
     <div class="row">
